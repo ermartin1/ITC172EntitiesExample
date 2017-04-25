@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
 
             key = (int)uKey;
             Session["userKey"] = key;
-            ResultLabel.Text = "Welcome " + key.ToString();
+            Response.Redirect("Author.aspx");
         }
         else
         {

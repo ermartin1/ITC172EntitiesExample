@@ -31,6 +31,9 @@
                 <asp:Label ID="ResultLabel" runat="server" Text=""></asp:Label> </td>
         </tr>
     </table>
+        <asp:LinkButton ID="LinkButton1" runat="server" 
+            PostBackUrl="Register.aspx">Register</asp:LinkButton>
+
     </div>
     </form>
 </body>
