@@ -14,14 +14,20 @@ public partial class Register : System.Web.UI.Page
 
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
-        string user = UserTextBox.Text;
-        string first = FirstNameTextBox.Text;
         string last = LastNameTextBox.Text;
+        string first = FirstNameTextBox.Text;
         string email = EmailTextBox.Text;
-        string password = ConfirmTextBox.Text;
+        string password = PasswordTextBox.Text;
+        string apt = HouseNumTextBox.Text;
+        string street = StreetTextBox.Text;
+        string city = CityTextBox.Text;
+        string state = StateTextBox.Text;
+        string zipcode = ZipCodeTextBox.Text;
+        string home = HomePhoneTextBox.Text;
+        string work = WorkPhoneTextBox.Text;
 
-        BookReviewDbEntities db = new BookReviewDbEntities();
-        int result = db.usp_NewReviewer(user, first, last, email, password);
+        Community_AssistEntities db= new Community_AssistEntities();
+        int result = db.usp_Register(last, first, email, password, apt, street, city, state, zipcode, home, work);
         if (result != -1)
         {
             Response.Redirect("Default.aspx");
@@ -30,6 +36,5 @@ public partial class Register : System.Web.UI.Page
         {
             ErrorLabel.Text = "Something went terribly wrong";
         }
-
     }
 }

@@ -15,17 +15,17 @@ public partial class _Default : System.Web.UI.Page
     protected void LoginButton_Click(object sender, EventArgs e)
     {
         int key = 0;
-        BookReviewDbEntities db = new BookReviewDbEntities();
-        int success = db.usp_ReviewerLogin(UserTextBox.Text, PasswordTextBox.Text);
+        Community_AssistEntities db = new Community_AssistEntities();
+        int success = db.usp_Login(UserTextBox.Text, PasswordTextBox.Text);
         if (success != -1)
         {
-            var uKey = (from k in db.Reviewers
-                        where k.ReviewerUserName.Equals(UserTextBox.Text)
-                        select k.ReviewerKey).FirstOrDefault();
+            var uKey = (from k in db.People
+                        where k.PersonEmail.Equals(UserTextBox.Text)
+                        select k.PersonKey).FirstOrDefault();
 
             key = (int)uKey;
             Session["userKey"] = key;
-            Response.Redirect("Author.aspx");
+            Response.Redirect("Register.aspx"); 
         }
         else
         {
