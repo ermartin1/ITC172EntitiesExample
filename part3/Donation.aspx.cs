@@ -18,10 +18,10 @@ public partial class _Default : System.Web.UI.Page
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
         Community_AssistEntities db = new Community_AssistEntities();
-        Donor a = new Donor();
-        a.DonorName = DonateTextBox.Text;
+        Donor d = new Donor();
+        d.DonorName = DonateTextBox.Text;
 
-        db.Donors.Add(a);
+        db.Donors.Add(d);
         db.SaveChanges();
 
         Response.Redirect("DonationList.aspx");
